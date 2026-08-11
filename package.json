@@ -1,0 +1,19 @@
+{
+  "name": "sod-ecosystem",
+  "version": "3.1.2",
+  "private": true,
+  "type": "module",
+  "description": "SØD Ecosystem V3.1.2 — conversación continua integrada, preparada para Supabase Auth y conversaciones persistentes",
+  "scripts": {
+    "dev": "node --watch server.mjs",
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "vercel-build": "npm run build",
+    "check": "node scripts/check.mjs",
+    "test": "npm run build && node tests/safe-access.mjs && node tests/domain.mjs && node tests/visual.mjs && node tests/library-v5.mjs && node tests/library-abundant.mjs && node tests/videoteca.mjs && node tests/conversation-ui.mjs && node tests/v3.mjs && node tests/hub-panorama.mjs && node tests/hub-floating-icons.mjs && node tests/smoke.mjs && node tests/vercel.mjs",
+    "validate": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

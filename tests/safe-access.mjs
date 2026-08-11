@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+const views=readFileSync(new URL('../public/js/views.js',import.meta.url),'utf8');
+const index=readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
+assert.doesNotMatch(views,/type="password"|current-password|new-password|name="email"|type="email"/i);
+assert.doesNotMatch(views,/Crear cuenta local|Autenticación MVP local|Sesión iniciada/i);
+assert.match(views,/No pedimos email, contraseña, teléfono, tarjeta ni credenciales/i);
+assert.match(views,/Continuar en este dispositivo/i);
+assert.match(index,/Este MVP no solicita contraseñas, tarjetas ni credenciales/i);
+console.log('Safe access tests passed: no credential collection, transparent local identity flow');
